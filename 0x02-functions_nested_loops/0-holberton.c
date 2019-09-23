@@ -1,13 +1,18 @@
 #include "holberton.h"
 
+/**
+ * main - Writes the string Holberton to stdout
+ *
+ * Return: On success 0
+ */
 int main(void)
 {
-        char c[] = "Holberton";
-        int i;
-        for (i = 0; i < 9; i++){
-                _putchar(c[i]);
-        }
-        _putchar('\n');
+	char c[] = "Holberton";
+	int i;
 
-        return (0);
+	for (i = 0; i < 9; i++)
+		_putchar(c[i]);
+	 _putchar('\n');
+
+	return (0);
 }
