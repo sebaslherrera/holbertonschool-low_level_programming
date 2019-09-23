@@ -1,6 +1,7 @@
 #ifndef HOLBERTON_H
 #define HOLBERTON_H
 
+#include <stdio.h>
 #include <unistd.h>
 
 /**
@@ -11,5 +12,6 @@
  * On error, -1 is returned, and errno is set appropriately.
  */
 int _putchar(char);
+void print_alphabet(void);
 
 #endif
