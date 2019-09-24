@@ -11,12 +11,14 @@ int main(void)
 
 	printf("%lli, ", x2);
 
-	while (n != 0){
+	while (n != 0)
+	{
 		next = x1 + x2;
 		x1 = x2;
 		x2 = next;
 		printf("%lli", next);
-		if(n > 1){
+		if (n > 1)
+		{
 			printf(", ");
 		}
 		n--;
