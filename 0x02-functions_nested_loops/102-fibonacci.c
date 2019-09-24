@@ -1,22 +1,22 @@
 #include <stdio.h>
 
 /**
- * main - Print the ...
+ * main - Print the first 50 fibonnaci numbers
  *
  * Return: 0 success
  */
 int main(void)
 {
-	long long  x1 = 0, x2 = 1, next = 0, n = 49;
+	unsigned long x1 = 0, x2 = 1, next = 0, n = 49;
 
-	printf("%lli, ", x2);
+	printf("%lu, ", x2);
 
 	while (n != 0)
 	{
 		next = x1 + x2;
 		x1 = x2;
 		x2 = next;
-		printf("%lli", next);
+		printf("%lu", next);
 		if (n > 1)
 		{
 			printf(", ");
@@ -24,4 +24,6 @@ int main(void)
 		n--;
 	}
 	putchar('\n');
+
+	return (0);
 }
