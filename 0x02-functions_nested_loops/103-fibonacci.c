@@ -1,7 +1,7 @@
 #include <stdio.h>
 
 /**
- * main - Print the first 50 fibonnaci numbers
+ * main - Print the sum of even numbers that not exceed 4000000
  *
  * Return: 0 success
  */
