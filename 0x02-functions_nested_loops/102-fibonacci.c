@@ -7,7 +7,7 @@
  */
 int main(void)
 {
-	unsigned long x1 = 0, x2 = 1, next = 0, n = 49;
+	unsigned long x1 = 0, x2 = 1, next = 0, n = 50;
 
 	while (n != 0)
 	{
