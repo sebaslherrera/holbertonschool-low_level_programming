@@ -1,4 +1,6 @@
 #include "holberton.h"
+#include <stdio.h>
+#include <stdlib.h>
 
 /**
  * print_number - Prints an integer with only _putchar
@@ -7,23 +9,20 @@
  */
 void print_number(int n)
 {
-	int i, l, x, h, ans, consN, abs, superN;
+	int i, l, x, h, ans, consN, superN;
 
 	if (n < 0)
-	{
-		abs = n * -1;
 		_putchar('-');
-	}
+
+	consN = n, ans = n, superN = n;
+	
+	if (n < 0)
+		for (l = 0; superN < 0; ++l)
+			superN /= 10;
 	else
-	{
-		abs = n;
-	}
-
-	consN = abs, ans = abs, superN = abs;
-
-	for (l = 0; superN > 0; ++l)
-		superN /= 10;
-
+		for (l = 0; superN > 0; ++l)
+			superN /= 10;
+	
 	h = l - 1;
 
 	if (n == 0)
@@ -40,7 +39,8 @@ void print_number(int n)
 				ans = ans / 10;
 				x--;
 			}
-			_putchar(ans % 10 + '0');
+			ans =  ans % 10;
+			_putchar(abs(ans)  + '0');
 			ans = consN;
 			h--;
 		}
