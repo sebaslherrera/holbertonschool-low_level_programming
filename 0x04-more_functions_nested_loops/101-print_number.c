@@ -14,14 +14,14 @@ void print_number(int n)
 		_putchar('-');
 
 	consN = n, ans = n, superN = n;
-	
+
 	if (n < 0)
 		for (l = 0; superN < 0; ++l)
 			superN /= 10;
 	else
 		for (l = 0; superN > 0; ++l)
 			superN /= 10;
-	
+
 	h = l - 1;
 
 	if (n == 0)
