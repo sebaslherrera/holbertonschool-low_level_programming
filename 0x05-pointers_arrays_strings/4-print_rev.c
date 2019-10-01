@@ -13,15 +13,11 @@ void print_rev(char *str)
 	int i;
 
 	for (t = str; *t != '\0'; t++)
-	{
 		counter++;
-	}
 
-	
+
 	for (i = counter - 1; i >= 0; i--)
-	{
 		_putchar(*(str + i));
-	}
 
 	_putchar('\n');
 }

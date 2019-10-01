@@ -2,7 +2,7 @@
 #include <stdio.h>
 
 /**
- * print_array - 
+ * print_array - Print the n elements of the array a
  *
  * @a: Pointer of a[] integer variable
  * @n: Number of elements of the array
@@ -16,13 +16,14 @@ void print_array(int *a, int n)
 
 		printf("%d", a[i]);
 
-		if (i < n - 1){
+		if (i < n - 1)
+		{
 			putchar(',');
 			putchar(' ');
 		}
 	}
 
 	putchar('\n');
-		
+
 }
 
