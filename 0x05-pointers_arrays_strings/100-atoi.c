@@ -1,21 +1,43 @@
 #include "holberton.h"
 #include <stdio.h>
 
+int isNumericChar(char x)
+{
+	if (x >= '0' && x <= '9')
+	{
+		return (1);
+	}
+	else
+	{
+		return (0);
+	}
+}
+
 /**
  * _atoi - Convert a string to an integer
  *
  * @s: Pointer of a char[] variable
- * Return: Integer value 
+ * Return: Integer value
  */
 int _atoi(char *s)
 {
-	int ans = 0, i;
+	if (*s == '\0')
+		return (0);
 
-	for (i = 0; s[i] != '\0'; i++)
+	int ans = 0, i = 0, sign = 1;
+
+	if (s[0] == '-')
 	{
-		ans = ans * 10 + s[i] - '0';
+		sign = -1;
+		i++;
 	}
 
-	return ans;
+	for (; s[i] != '\0'; i++)
+	{
+		if (isNumericChar(s[i]))
+			ans = ans * 10 + s[i] - '0';
+	}
+
+	return (ans * sign);
 }
 
