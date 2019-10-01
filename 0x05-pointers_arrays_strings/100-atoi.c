@@ -1,10 +1,11 @@
 int _atoi(char *s)
 {
-        if (*s == '\0')
-                return (0);
+        unsigned int ans;
+        int i, sign;
 
-        unsigned int ans = 0;
-        int i = 0, sign = 1;
+	ans = 0;
+	i = 0;
+	sign = 1;
 
 
         while ((s[i] < '0' || s[i] > '9') && s[i] != 0)
