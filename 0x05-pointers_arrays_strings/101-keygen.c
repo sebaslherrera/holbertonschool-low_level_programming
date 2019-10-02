@@ -8,18 +8,22 @@
  */
 int main(void)
 {
-	int randomNumber, i, until, last;
+	int i, until, last, sum = 0;
 	char randomKey[100];
+	char generator[] = "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnop";
 
 	srand(time(NULL));
-	randomNumber = rand() % (122 + 1 - 97) + 97;
-	until = 2772 / randomNumber;
-	last = 2772 - (until * randomNumber);
-	for (i = 0; i < until; i++)
+	i = 0;
+	until = 2772 - 112;
+	last = 2772;
+	while (sum < until)
 	{
-		randomKey[i] = randomNumber;
+		randomKey[i] = generator[rand() % (sizeof(generator) - 1)];
+		sum += randomKey[i];
+		i++;
 	}
-	randomKey[i] = last;
+
+	randomKey[i] = last - sum;
 	randomKey[i + 1] = '\0';
 	printf("%s", randomKey);
 
