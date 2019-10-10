@@ -9,12 +9,12 @@ int result_i(int i)
 int sqrt_mod(int n, int i)
 {
 	if (i * i == n)
-		return (1);
+		return (i);
 	i++;
 	if (result_i(i) < n)
-		//printf("valor del result i: %d\n", result_i(i));
 		return sqrt_mod(n, ++i);
-
+	if (result_i(i) > n)
+		return (-1);
 	return i;
 }
 /**
