@@ -28,5 +28,6 @@ int is_prime_number_mod(int n, int i)
 		return (1);
 	else if (n % i == 0)
 		return (0);
+
 	return (is_prime_number_mod(n, i + 1));
 }
