@@ -1,5 +1,4 @@
 #include "holberton.h"
-#include <stdio.h>
 
 /**
  * is_prime_number_mod - Recursive function to check prime numbers
