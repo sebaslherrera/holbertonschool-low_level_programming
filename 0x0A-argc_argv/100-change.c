@@ -16,7 +16,7 @@ int main(int argc, char *argv[])
 
 	if (argc != 2)
 	{
-		printf("Error dfas\n");
+		printf("Error\n");
 		return (1);
 	}
 
