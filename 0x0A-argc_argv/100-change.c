@@ -12,12 +12,20 @@
 int main(int argc, char *argv[])
 {
 	int coins[5] = {25, 10, 5, 2, 1};
-	int ans = 0, value = atoi(argv[1]), coin, i;
+	int ans = 0, value, coin, i;
 
-	if (argc < 1)
+	if (argc != 2)
 	{
-		printf("Error\n");
+		printf("Error dfas\n");
 		return (1);
+	}
+
+	value = atoi(argv[1]);
+
+	if (value < 0)
+	{
+		printf("0\n");
+		return (0);
 	}
 
 	while (value)
