@@ -12,12 +12,14 @@ int _strlen_recursion(char *s);
 char *str_concat(char *s1, char *s2)
 {
 	char *new, *s1cp, *s2cp;
-	int len1, len2, i, j = 0;
+	int len1 = 0, len2 = 0, i, j = 0;
 
 	s1cp = s1;
 	s2cp = s2;
-	len1 = _strlen_recursion(s1cp);
-	len2 = _strlen_recursion(s2cp);
+	if (s1 != NULL)
+		len1 = _strlen_recursion(s1cp);
+	if (s2 != NULL)
+		len2 = _strlen_recursion(s2cp);
 
 	new = (char *) malloc(sizeof(char) * len1 + len2 + 1);
 
