@@ -4,7 +4,7 @@ char *_strcpy(char *dest, char *src);
 int _strlen_recursion(char *s);
 
 /**
- * new_dog - Create a new dog and make a copy of the data
+ * *new_dog - Create a new dog and make a copy of the data
  * @name: String name given
  * @age: Float, age in years
  * @owner: String, name of the owner
@@ -52,12 +52,12 @@ dog_t *new_dog(char *name, float age, char *owner)
 }
 
 /**
- *  * *_strcpy - Copy the string pointed
- *   *
- *    * @dest: Pointer of a char[] variable
- *     * @src: Pointer of a char[] variable
- *      * Return: Copy of the pointer char
- *       */
+ * *_strcpy - Copy the string pointed
+ * @dest: Pointer of a char[] variable
+ * @src: Pointer of a char[] variable
+ *
+ * Return: Copy of the pointer char
+ */
 char *_strcpy(char *dest, char *src)
 {
 	int counter = 0;
@@ -75,10 +75,10 @@ char *_strcpy(char *dest, char *src)
 }
 
 /**
- *  * _strlen_recursion - Length of a string
- *   * @s: char pointer
- *    * Return: Integer variable
- *     */
+ * _strlen_recursion - Length of a string
+ *@s: char pointer
+ *Return: Integer variable
+ */
 int _strlen_recursion(char *s)
 {
 	if (*s != '\0')
