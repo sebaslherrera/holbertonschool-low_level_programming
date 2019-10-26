@@ -12,7 +12,7 @@
 typedef struct typedata
 {
 	char type;
-	void (*data_print)(va_list, char *);
+	void (*data_print)(va_list);
 } td;
 
 

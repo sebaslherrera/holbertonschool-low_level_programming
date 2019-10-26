@@ -3,10 +3,10 @@
 #include <stdlib.h>
 #include <string.h>
 
-void print_char(va_list args, char *separator);
-void print_integer(va_list args, char *separator);
-void print_float(va_list args, char *separator);
-void print_string(va_list args, char *separator);
+void print_char(va_list args);
+void print_integer(va_list args);
+void print_float(va_list args);
+void print_string(va_list args);
 
 /**
  * print_all - Print all of data passed
@@ -28,15 +28,17 @@ void print_all(const char * const format, ...)
 
 	va_start(args, format);
 
-	while (format[i] != '\0')
+	while (format[i] != '\0' && format != NULL)
 	{
 		j = 0;
 		while (j < 4)
 		{
 			if (format[i] == types[j].type)
 			{
-				types[j].data_print(args, sep);
+				printf("%s", sep);
+				types[j].data_print(args);
 				sep = ", ";
+				break;
 			}
 			j++;
 		}
@@ -51,51 +53,50 @@ void print_all(const char * const format, ...)
 /**
  * print_char - Prints a char value
  * @args: Argument passed
- * @separator: separator of data for better visualization
  *
  * Return: nothing
  */
-void print_char(va_list args, char *separator)
+void print_char(va_list args)
 {
-	printf("%s", separator);
 	printf("%c", va_arg(args, int));
 }
 
 /**
  * print_integer - Prints an integer value
  * @args: Argument passed
- * @separator: separator of data for better visualization
  *
  * Return: nothing
  */
-void print_integer(va_list args, char *separator)
+void print_integer(va_list args)
 {
-	printf("%s", separator);
 	printf("%d", va_arg(args, int));
 }
 
 /**
  * print_float - Prints a float value
  * @args: Argument passed
- * @separator: separator of data for better visualization
  *
  * Return: nothing
  */
-void print_float(va_list args, char *separator)
+void print_float(va_list args)
 {
-	printf("%s", separator);
 	printf("%f", va_arg(args, double));
 }
 
 /**
  * print_string - Prints a string value
  * @args: Argument passed
- * @separator: separator of data for better visualization
  *
  * Return: nothing
  */
-void print_string(va_list args, char *separator)
+void print_string(va_list args)
 {
-	printf("%s", separator);
-	printf("%s", va_arg(args, char *));
+	char *str = va_arg(args, char *);
+
+	if (str == NULL)
+	{
+		printf("(nil)");
+		return;
+	}
+		printf("%s", str);
 }
