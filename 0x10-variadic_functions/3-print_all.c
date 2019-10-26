@@ -1,7 +1,6 @@
 #include "variadic_functions.h"
 #include <stdio.h>
 #include <stdlib.h>
-#include <string.h>
 
 void print_char(va_list args);
 void print_integer(va_list args);
@@ -23,7 +22,7 @@ void print_all(const char * const format, ...)
 		{'c', print_char},
 		{'i', print_integer},
 		{'f', print_float},
-		{'s', print_string}
+		{'s', print_string},
 	};
 
 	va_start(args, format);
@@ -94,9 +93,7 @@ void print_string(va_list args)
 	char *str = va_arg(args, char *);
 
 	if (str == NULL)
-	{
-		printf("(nil)");
-		return;
-	}
-		printf("%s", str);
+		str = "(nil)";
+
+	printf("%s", str);
 }
