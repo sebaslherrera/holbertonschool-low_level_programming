@@ -19,20 +19,19 @@ void print_all(const char * const format, ...)
 	unsigned int i = 0, j = 0;
 	char *sep = "";
 	td types[] = {
-		{'c', print_char},
-		{'i', print_integer},
-		{'f', print_float},
-		{'s', print_string},
+		{"c", print_char},
+		{"i", print_integer},
+		{"f", print_float},
+		{"s", print_string},
+		{NULL, NULL}
 	};
-
 	va_start(args, format);
-
 	while (format[i] != '\0' && format != NULL)
 	{
 		j = 0;
-		while (j < 4)
+		while (types[j].type != NULL)
 		{
-			if (format[i] == types[j].type)
+			if (format[i] == *(types[j].type))
 			{
 				printf("%s", sep);
 				types[j].data_print(args);

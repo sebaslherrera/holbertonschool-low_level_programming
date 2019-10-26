@@ -11,7 +11,7 @@
  */
 typedef struct typedata
 {
-	char type;
+	char *type;
 	void (*data_print)(va_list);
 } td;
 
