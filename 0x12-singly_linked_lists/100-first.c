@@ -1,8 +1,12 @@
 #include <stdio.h>
 
-void before_main() __attribute__((constructor));
+void __attribute__((constructor)) beforeMain();
 
-void before_main()
+/**
+ * beforeMain - Prints something before the main is executed
+ */
+void beforeMain(void)
 {
-	printf("You're beat! and yet, you must allow,\nI bore my house upon my back!\n");
+	printf("You're beat! and yet, you must allow,");
+	printf("\nI bore my house upon my back!\n");
 }
