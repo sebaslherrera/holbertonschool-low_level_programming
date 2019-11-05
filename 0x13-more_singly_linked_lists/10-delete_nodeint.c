@@ -12,34 +12,28 @@ int delete_nodeint_at_index(listint_t **head, unsigned int index)
 {
 	listint_t *temp = *head;
 	listint_t *previous;
-	unsigned int i = 0, found = 0;
+	unsigned int i = 0;
 
 
-	if (*head == NULL && index > 0)
+	if (*head == NULL)
 		return (-1);
 
-	if (*head != NULL && index == 0)
+	if (index == 0)
 	{
-		*head = temp->next;
-		free(temp);
+		*head = temp->next; /* Change the head */
+		free(temp); /* Free the old head */
 		return (1);
 	}
-	while (temp != NULL)
+	while (temp != NULL && i != index)
 	{
-
-		if (i == index - 1)
-		{
-			found = 1;
-			break;
-		}
-		previous = temp;
-		temp = temp->next;
+		previous = temp; /* Save the previous node */
+		temp = temp->next; /* Save the next node */
 		i++;
 	}
-
-	if (!found)
+	/* If the given key doesn't found */
+	if (temp == NULL)
 		return (-1);
-
+	/* Unlink the node from the list */
 	previous->next = temp->next;
 	free(temp);
 
