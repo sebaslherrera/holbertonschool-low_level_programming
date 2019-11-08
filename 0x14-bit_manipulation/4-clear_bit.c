@@ -2,7 +2,7 @@
 
 
 /**
- * set_bit - Set value of a bit to 1 at given index
+ * clear_bit - Set value of a bit to 0 at given index
  * @n: Big number
  * @index: Given index
  *
