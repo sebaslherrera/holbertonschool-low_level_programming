@@ -26,6 +26,7 @@ size_t print_listint_safe(const listint_t *head)
 	while (head != NULL)
 	{
 		add = (uli) head;
+		i++;
 		if (add != ht_get(ht, add))
 		{
 			printf("[%p] %d\n", (void *)head, head->n);
@@ -37,7 +38,6 @@ size_t print_listint_safe(const listint_t *head)
 		}
 		ht_set(ht, add, add);
 		head = head->next;
-		i++;
 	}
 	return (i);
 }
