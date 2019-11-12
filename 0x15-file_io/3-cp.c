@@ -8,7 +8,7 @@
  */
 void mError(int exitCode, const char *format)
 {
-	dprintf(2, "%s\n", format);
+	dprintf(STDERR_FILENO, "%s\n", format);
 	exit(exitCode);
 }
 
@@ -20,7 +20,7 @@ void mError(int exitCode, const char *format)
  */
 void mErrorString(int exitCode, const char *format, const char *s)
 {
-	dprintf(2, "%s %s\n", format, s);
+	dprintf(STDERR_FILENO, "%s %s\n", format, s);
 	exit(exitCode);
 }
 
@@ -41,21 +41,20 @@ int main(int argc, char **argv)
 
 	fd1 = open(argv[1], O_RDONLY);
 	if (fd1 == -1)
-		mErrorString(98, "error: Can't read from file", argv[1]);
+		mErrorString(98, "Error: Can't read from file", argv[1]);
 
-	fd2 = open(argv[2], O_RDWR | O_TRUNC | O_CREAT, 0664);
+	fd2 = open(argv[2], O_WRONLY | O_TRUNC | O_CREAT, 0664);
 	if (fd2 == -1)
 		mErrorString(99, "Error: Can't write to", argv[2]);
 
-	for (rd = read(fd1, buff, 1024); rd != 0; rd = read(fd1, buff, 1024))
+	for (rd = read(fd1, buff, 1024); rd > 0; rd = read(fd1, buff, 1024))
 	{
-		if (rd == -1)
-			mErrorString(98, "Error: Can't read from file", argv[1]);
-
 		cp = write(fd2, buff, rd);
 		if (cp == -1)
 			mErrorString(99, "Error: Can't write to", argv[2]);
 	}
+	if (rd == -1)
+		mErrorString(98, "Error: Can't read from file", argv[1]);
 
 	cl = close(fd1);
 	if (cl == -1)
