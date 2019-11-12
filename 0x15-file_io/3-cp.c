@@ -41,7 +41,7 @@ int main(int argc, char **argv)
 
 	fd1 = open(argv[1], O_RDONLY);
 	if (fd1 == -1)
-		mErrorString(98, "error: can't read from file", argv[1]);
+		mErrorString(98, "error: Can't read from file", argv[1]);
 
 	fd2 = open(argv[2], O_RDWR | O_TRUNC | O_CREAT, 0664);
 	if (fd2 == -1)
