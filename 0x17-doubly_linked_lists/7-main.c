@@ -177,5 +177,22 @@ int main(void)
     free_dlistint(head);
     head = NULL;
 
+    printf("\n\n");
+    printf("NINETH TEST (pos 15)\n");
+    head = NULL;
+    add_dnodeint_end(&head, 0);
+    add_dnodeint_end(&head, 1);
+    add_dnodeint_end(&head, 2);
+    add_dnodeint_end(&head, 3);
+    add_dnodeint_end(&head, 4);
+    add_dnodeint_end(&head, 98);
+    add_dnodeint_end(&head, 402);
+    add_dnodeint_end(&head, 1024);
+    print_dlistint_both_ways(head);
+    printf("-----------------\n");
+    insert_dnodeint_at_index(&head, 15, 4096);
+    print_dlistint_both_ways(head);
+    free_dlistint(head);
+    head = NULL;
     return (EXIT_SUCCESS);
 }
