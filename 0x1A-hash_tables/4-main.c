@@ -22,6 +22,8 @@ int main(void)
     hash_table_set(ht, "Betty", "Holberton");
     hash_table_set(ht, "98", "Battery Street");
     hash_table_set(ht, "c", "isfun");
+    hash_table_set(ht, "hetairas", "holberton pro");
+    hash_table_set(ht, "mentioner", "sebastian value");
 
     value = hash_table_get(ht, "python");
     printf("%s:%s\n", "python", value);
@@ -39,5 +41,9 @@ int main(void)
     printf("%s:%s\n", "c", value);
     value = hash_table_get(ht, "javascript");
     printf("%s:%s\n", "javascript", value);
+    value = hash_table_get(ht, "hetairas");
+    printf("%s:%s\n", "hetairas", value);
+    value = hash_table_get(ht, "mentioner");
+    printf("%s:%s\n", "mentioner", value);
     return (EXIT_SUCCESS);
 }
