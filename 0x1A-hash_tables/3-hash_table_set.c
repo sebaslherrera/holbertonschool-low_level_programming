@@ -69,5 +69,7 @@ int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 		head = prev->next;
 	}
 	prev->next = hash_table_set_pair(key, value);
+	if (prev->next == NULL)
+		return (0);
 	return (1);
 }
