@@ -36,7 +36,7 @@ hash_node_t *hash_table_set_pair(const char *key, const char *value)
 int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 {
 	hash_table_t *table = ht;
-	hash_node_t *head = NULL, *prev = NULL;
+	hash_node_t *head = NULL, *new = NULL;
 	unsigned long int index;
 
 	if (table == NULL || value == NULL || key == NULL || strlen(key) == 0)
@@ -52,7 +52,6 @@ int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 			return (0);
 		return (1);
 	}
-	/* Collision */
 
 	while (head != NULL)
 	{
@@ -65,11 +64,13 @@ int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 				return (0);
 			return (1);
 		}
-		prev = head;
-		head = prev->next;
+		head = head->next;
 	}
-	prev->next = hash_table_set_pair(key, value);
-	if (prev->next == NULL)
+
+	new = hash_table_set_pair(key, value);
+	if (new == NULL)
 		return (0);
+	new->next = table->array[index];
+	table->array[index] = new;
 	return (1);
 }
