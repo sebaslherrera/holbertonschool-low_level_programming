@@ -31,9 +31,9 @@ int main(void)
     free(value);
     hash_table_set(ht, "98", "Battery Street"); 
     hash_table_set(ht, "hetairas", "Jennie");
-    hash_table_set(ht, "hetairas", "Jennie Z");
-    hash_table_set(ht, "mentioner", "Jennie");
-    hash_table_set(ht, "hetairas", "Jennie Z Chu");
+    hash_table_set(ht, "hetairas", "Jennie updated");
+    hash_table_set(ht, "mentioner", "Jennie men");
+/*    hash_table_set(ht, "hetairas", "Jennie Z Chu"); */
     hash_table_print(ht);
     hash_table_delete(ht);
     return (EXIT_SUCCESS);
