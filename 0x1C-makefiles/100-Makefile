@@ -1,4 +1,5 @@
-.PHONY = all clean oclean fclean re
+.PHONY: all clean oclean fclean re
+
 CC = gcc
 SRC = main.c holberton.c
 OBJ = $(SRC:.c=.o)
@@ -6,7 +7,7 @@ NAME = holberton
 CFLAGS = -Wall -Werror -Wextra -pedantic
 
 # builds your executable
-all: $(OBJ) m.h
+all: m.h $(OBJ)
 		$(CC) $(SRC) -o $(NAME)
 
 # deletes all Emacs and Vim temporary files along with the executable
@@ -21,4 +22,4 @@ oclean:
 fclean: clean oclean
 
 # forces recompilation of all source files
-re: oclean all
+re: fclean all
