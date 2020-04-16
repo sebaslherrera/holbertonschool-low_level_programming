@@ -1,7 +1,7 @@
 #include "search_algos.h"
 
 void print_searched(int *array, size_t left, size_t right);
-int recursive_binary(int *array, size_t left, size_t right, int val, int ans);
+int recursive_binary(int *array, size_t left, size_t right, int val);
 
 /**
  * advanced_binary - Advanced Binary search implemented
@@ -12,10 +12,10 @@ int recursive_binary(int *array, size_t left, size_t right, int val, int ans);
  */
 int advanced_binary(int *array, size_t size, int value)
 {
-	if (array == NULL)
+	if (array == NULL || size == 0)
 		return (-1);
 
-	return (recursive_binary(array, 0, size - 1, value, -1));
+	return (recursive_binary(array, 0, size - 1, value));
 }
 
 /**
@@ -24,24 +24,23 @@ int advanced_binary(int *array, size_t size, int value)
  * @left: Index to the left in the array
  * @right: Index in the right in the array
  * @value: Search value in the array
- * @ans: Posibble response integer
  * Return: Integer with the index of the searched value or -1
  */
-int recursive_binary(int *array, size_t left, size_t right, int value, int ans)
+int recursive_binary(int *array, size_t left, size_t right, int value)
 {
-	int mid;
+	size_t mid;
 
 	if (left <= right)
 	{
 		mid = left + (right - left) / 2;
 		print_searched(array, left, right);
-		if (array[mid] == value)
-			ans = mid;
+		if (array[mid] == value && (mid == left || array[mid - 1] != value))
+			return (mid);
 		if (array[mid] < value)
-			return (recursive_binary(array, mid + 1, right, value, ans));
-		return (recursive_binary(array, left, mid - 1, value, ans));
+			return (recursive_binary(array, mid + 1, right, value));
+		return (recursive_binary(array, left, mid, value));
 	}
-	return (ans);
+	return (-1);
 }
 
 /**
